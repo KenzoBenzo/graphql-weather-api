@@ -6,6 +6,7 @@ const {
 } = require("graphql");
 const weatherForecastType = require("./weatherForecastType");
 const axios = require("axios");
+const APPID = require("./keys");
 
 const query = new GraphQLObjectType({
   name: "Query",
@@ -19,7 +20,7 @@ const query = new GraphQLObjectType({
         },
       },
       resolve: (_, { city }) => {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=92e237d8e5efab352f51c1373e6dd424`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${APPID}`;
         return axios.get(url).then(function (response) {
           return response.data;
         });

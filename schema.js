@@ -6,7 +6,6 @@ const {
 } = require("graphql");
 const weatherForecastType = require("./weatherForecastType");
 const axios = require("axios");
-const APPID = require("./keys");
 
 const query = new GraphQLObjectType({
   name: "Query",
